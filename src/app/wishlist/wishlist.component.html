@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div  style="margin-top: 40px;">
+
+<div style="height: 90vh;" *ngIf="allProducts.length===0"
+ class="empty-wishlist mt-5 d-flex justify-content-center align-items-center w-100 flex-column ">
+<img  height="350vh"  src="https://www.kindpng.com/picc/m/174-1749396_empty-cart-your-cart-is-empty-hd-png.png" alt="">
+<h1 class="text-danger">WishList is Empty!!!</h1>
+<button class="btn btn-info" routerLink="user/allproducts">Add more items</button>
+
+
+</div>
+
+
+<div class="wishlist"  *ngIf="allProducts.length>0" >
+    <div class="container px-4 px-lg-5 mt-5">
+        <h2 class="text-danger">Your Wish List...</h2>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5" *ngFor="let product of allProducts">
+                <div class="card h-100 shadow p-2">
+                    <!-- Product image-->
+                    <img routerLink="view/{{product.id}}" height="200px"  class="card-img-top" [src]="product.image" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{product.title.slice(0,20)}}......</h5>
+                            <!-- Product price-->
+                            ${{product.price}} 
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center d-flex justify-content-between">
+                            <button class="btn" (click)="removeItem(product._id)"><i style="height: 40px;"   class="fa-solid fa-heart-circle-minus text-danger fa-2x"></i></button>
+                            <button class="btn" (click)="addtoCart(product)"><i style="height: 40px;" class="fa-solid fa-cart-arrow-down text-success fa-2x"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+
+</div>

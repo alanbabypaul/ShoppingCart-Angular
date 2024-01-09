@@ -1,0 +1,69 @@
+<app-header></app-header>
+
+<div style="margin-top: 50px;" class="">
+
+
+
+ <!-- Header-->
+ <header class="py-5">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img  height="500px"   src="https://cdn-iddmh.nitrocdn.com/fNhkpYellSpULkgJwrERyjbDZEeDqPEV/assets/images/optimized/rev-180ef17/topgrowthmarketing.com/wp-content/uploads/2022/04/1_TGM_Clothing_Blog_Banner.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img  height="500px"  src="https://img.freepik.com/free-psd/fashion-event-facebook-template_23-2150283919.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img  height="500px"  src="https://img.freepik.com/free-psd/new-arrival-sale-template-design_23-2149907494.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+      </div>
+</header>
+<!-- Section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5" *ngFor="let  product of allProducts">
+                <div class="card h-100 shadow p-2">
+                    <!-- Product image-->
+                    <img routerLink="view/{{product.id}}"  class="card-img-top " height="200px" [src]="product.image" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{product.title.slice(0,20)}}......</h5>
+                            <!-- Product price-->
+                          ${{product.price}}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center d-flex justify-content-between">
+                            <button class="btn" (click)="addtoWishlist(product)" ><i style="height: 40px;"  class="fa-solid fa-heart fa-2x text-danger"></i></button>
+                            <button class="btn" (click)="addtoCart(product)"><i   style="height: 40px;" class="fa-solid fa-cart-shopping fa-2x text-success "></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

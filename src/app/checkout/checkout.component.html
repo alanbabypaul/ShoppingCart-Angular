@@ -1,0 +1,96 @@
+<app-header></app-header>
+
+<div  style="margin-top: 100px;" class="d-flex justify-content-center align-items-center flex-column w-100">
+<div class="Delivery w-50 mt-5 border rounded p-3">
+    <h1>Delivery Details</h1>
+
+
+<form [formGroup]="checkoutForm" (ngSubmit)="proceedToBuy()"  *ngIf="proceedToBuyStatus">
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput1" placeholder="username" name="uname" formControlName="uname">
+        <label for="floatingInput1">Username</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput2" placeholder="Apartment" name="flat" formControlName="flat">
+        <label for="floatingInput2">Apartment</label>
+    </div>
+
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput3" placeholder="place" name="place" formControlName="place">
+        <label for="floatingInput3">place</label>
+    </div>
+
+
+
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput4" placeholder="pincode" name="pincode" formControlName="pincode">
+        <label for="floatingInput4">Pincode</label>
+    </div>
+
+
+    <div class="btn d-flex justify-content-between">
+        <button class="btn btn-danger" (click)="cancel()">cancel</button>
+        <button class="btn btn-success " type="submit" (click)="proceedToBuy()"  >Proceed To  Buy</button>
+    </div>
+
+
+</form>
+
+
+
+<!-- hide] -->
+<div class="border rounded p3 mt-4"  *ngIf="!proceedToBuyStatus">
+
+    <h4 class="text-center">.....Address....</h4>
+    <h2 class="text-info fw-bolder">{{checkoutForm.value.uname}}</h2>
+    <span class="text-danger fw-bolder">{{checkoutForm.value.flat}},</span>
+    <span class="text-warning fw-bolder">{{checkoutForm.value.place}}</span>
+    <span>{{checkoutForm.value.pincode}}</span>
+    <h2 class="bold text-success fw-bolder"> TotalAmount:  {{totalAmount}}</h2>
+    <hr>
+
+    <div *ngIf="!proceedToBuyStatus" class="btn d-flex justify-content-between" >
+        <button class="btn btn-primary"  value="back" (click)="back()" >back</button>
+        <button class="btn btn-info " (click)="proceedToPayment()"  >Proceed To pay</button>
+    </div>
+
+
+
+
+    <div class="mt-5 paypal p-5" *ngIf="!proceedToPaymentStatus">
+        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

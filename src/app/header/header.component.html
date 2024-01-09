@@ -1,0 +1,57 @@
+<nav style="z-index: 1;" class="navbar navbar-expand-lg position-fixed w-100 top-0">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="''">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="fw-bolder">Daily Cart</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search products" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit"><i class="fa-brands fa-searchengin"></i></button>
+      </form>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/user/wishlist">
+            <button class="btn btn-success d-flex align-items-center">
+              <i class="fa-solid fa-heart text-danger me-1"></i>
+              Wishlist
+              <span class="badge bg-dark ms-1">{{wishlistCount}}</span>
+            </button>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/user/cart">
+            <button class="btn btn-success d-flex align-items-center">
+              <i class="fa-solid fa-cart-shopping me-1"></i>
+              Cart
+              <span class="badge bg-dark ms-1">{{cartCount}}</span>
+            </button>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="!loginUsername">
+          <a class="nav-link active" routerLink="user/login">
+            <button class="btn btn-success">
+              <i class="fa-solid fa-user text-dark"></i>
+              Login
+            </button>
+          </a>
+        </li>
+
+        <!-- User is logged in -->
+        <li class="nav-item mt-2" *ngIf="loginUsername">
+          <span class="fw-bolder text-danger ms-3">Welcome {{loginUsername}}</span>
+          <button class="btn btn-success ms-3" (click)="logout()">
+            <i class="fa-solid fa-user text-dark"></i>
+            LogOut
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
