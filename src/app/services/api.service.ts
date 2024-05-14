@@ -9,7 +9,9 @@ export class ApiService {
 
   wishlistCount =  new BehaviorSubject(0)
   cartCount = new BehaviorSubject(0)
-  SERVER_URL = "http://localhost:3000"
+  // SERVER_URL = "http://localhost:3000"
+  SERVER_URL = "https://shoppingcartserver-o0j6.onrender.com://localhost:3000"
+  
   constructor(private  http:HttpClient) {
     if(sessionStorage.getItem("token")){
       this.getWishlistCount()
